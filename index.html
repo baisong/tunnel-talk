@@ -1,1 +1,176 @@
-Hello...
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta content="on" http-equiv="cleartype">
+  <meta content="width=device-width, initial-scale=1, minimal-ui" name="viewport">
+  <meta content="yes" name="mobile-web-app-capable">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="Vue Material" name="apple-mobile-web-app-title">
+  <meta content="Vue Material" name="application-name">
+  <meta content="Material Design for Vue" name="description">
+  <meta content="/assets/favicon/browserconfig.xml" name="msapplication-config">
+  <meta content="#2196f3" name="theme-color">
+  <title>Vue Material</title>
+  <link href="/assets/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+  <link href="/assets/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+  <link href="/assets/favicon/favicon-194x194.png" rel="icon" sizes="194x194" type="image/png">
+  <link href="/assets/favicon/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png">
+  <link href="/assets/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+  <link href="/assets/favicon/manifest.json" rel="manifest">
+  <link href="/assets/favicon/safari-pinned-tab.svg" rel="mask-icon">
+  <link href="/assets/favicon/favicon.ico" rel="shortcut icon">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="dist/vue-material.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'>
+  </script>
+  <script src="https://unpkg.com/vue">
+  </script>
+  <script src="dist/vue-material.js">
+  </script>
+  <script src="js/main.js">
+  </script>
+</head>
+<body class="fill-canvas">
+  <div id="app" class="fill-canvas">
+  <!--
+    <md-toolbar  class="md-accent">
+      <md-button class="md-icon-button">
+        <md-icon>menu</md-icon>
+      </md-button>
+      <h2 class="md-title" style="flex: 1">Life Calendar</h2>
+      <md-button class="md-icon-button">
+        <md-icon>favorite</md-icon>
+      </md-button>
+    </md-toolbar>
+    -->
+    <md-layout md-gutter class="fill-canvas">
+      <!--<md-layout md-column md-gutter md-flex>-->
+        <md-layout md-align="center" md-gutter="16" md-flex>
+          <md-layout md-flex-xsmall="100" md-flex-small="90" md-flex="75">
+            <md-layout md-column id="pagecontent" md-align="center">
+              <md-layout md-flex="70">
+                <md-card>
+                  <md-card-header>
+                    <div class="md-title">2017</div>
+                    <div class="md-subhead">Life Calendar</div>
+                  </md-card-header>
+                  <md-card-content class="fill-width">
+                  <p>Hello world. asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.</p>
+                  <md-layout md-column>
+                    <md-layout md-flex="100">
+                    <md-whiteframe id="year" md-elevation="5">
+                    Year
+                    <md-layout md-column>
+                      <md-layout md-flex="25">
+                        <md-whiteframe id="quarter" md-elevation="5">
+                        Quarter
+                          <md-layout md-gutter md-flex>
+                            <md-layout>M</md-layout>
+                            <md-layout>M</md-layout>
+                            <md-layout>
+                              <md-whiteframe id="month" md-elevation="5">
+                              Month
+                              <md-layout md-row md-gutter md-flex>
+                                <md-layout>W</md-layout>
+                                <md-layout>W</md-layout>
+                                <md-layout>W</md-layout>
+                                <md-layout>
+                                  <md-whiteframe id="week" md-elevation="5">
+                                  Week
+                                    <md-whiteframe id="day" md-elevation="5">
+                                    Day
+                                    </md-whiteframe>
+                                  </md-whiteframe>
+                                  </md-layout>
+                                </md-layout>
+                              </md-whiteframe>
+                            </md-layout>
+                          </md-layout>
+                        </md-whiteframe>
+                        </md-layout>
+                        <md-layout>Q</md-layout>
+                        <md-layout>Q</md-layout>
+                        <md-layout>Q</md-layout>
+                      </md-layout>
+                    </md-whiteframe>
+                    </md-layout>
+                    </md-layout>
+                  </md-card-content>
+                </md-card>
+              </md-layout>
+              <md-layout md-flex="10"></md-layout>
+            </md-layout>
+          </md-layout>
+        </md-layout>
+      <!--</md-layout>-->
+    </md-layout>
+  </div>
+<script>
+  /*
+  Tabletop.init({
+   key: 'https://docs.google.com/spreadsheets/d/1N9pkMMcuskm636f9KjV2Uf0AJDesdeOmsARHKk0xm3U/pubhtml﻿',
+   callback: function(sheet, tabletop) {
+     //console.log(sheet);
+     window.sheet = sheet;
+   },
+   simpleSheet: true
+  });
+  */
+
+  Vue.use(VueMaterial);
+  Vue.material.registerTheme('default', {
+  primary: 'blue',
+  accent: 'red',
+  warn: 'red',
+  background: {
+    color: 'indigo',
+    hue: 50
+  }
+})
+  var App = new Vue({
+   el: '#app',
+   data: {
+     title: 'Title!',
+     subhead: 'Subhead!'
+   },
+   /*
+   methods: {
+     generateKeywords: function(e, g) {
+       return [e.name, g.name];
+     },
+   },
+   computed: {
+     // a computed getter
+     keywords: function() {
+       return this.generateKeywords(this.ethnicities[this.activeEthnicity], this.groups[this.activeGroup]);
+     }
+   }
+   */
+  });
+  </script>
+  <style>
+    body, html {
+      background: #ddd;
+    }
+    .fill-canvas {
+      height: 100%;
+    }
+    .fill-width {
+      width: 100%;
+    }
+    .md-theme-default.md-card {
+      background-color: white;
+    }
+    #year {
+      width: 100%;
+    }
+    #quarter {
+      height: 25%;
+    }
+  </style>
+</body>
+</html>
