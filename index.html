@@ -33,79 +33,39 @@
   </script>
   <script src="js/main.js">
   </script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 </head>
 <body class="fill-canvas">
   <div id="app" class="fill-canvas">
-  <!--
-    <md-toolbar  class="md-accent">
-      <md-button class="md-icon-button">
-        <md-icon>menu</md-icon>
-      </md-button>
-      <h2 class="md-title" style="flex: 1">Life Calendar</h2>
-      <md-button class="md-icon-button">
-        <md-icon>favorite</md-icon>
-      </md-button>
-    </md-toolbar>
-    -->
-    <md-layout md-gutter class="fill-canvas">
+    <md-layout md-gutter >
       <!--<md-layout md-column md-gutter md-flex>-->
         <md-layout md-align="center" md-gutter="16" md-flex>
-          <md-layout md-flex-xsmall="100" md-flex-small="90" md-flex="75">
-            <md-layout md-column id="pagecontent" md-align="center">
-              <md-layout md-flex="70">
-                <md-card>
+            <!--<md-layout md-column id="pagecontent" md-align="center"> -->
+                <md-card style="margin-top:10px;">
                   <md-card-header>
-                    <div class="md-title">2017</div>
-                    <div class="md-subhead">Life Calendar</div>
+                    <div class="md-title">Take Action</div>
+                    <div class="md-subhead">Progressive San Diego</div>
                   </md-card-header>
                   <md-card-content class="fill-width">
-                  <p>Hello world. asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.  asdf asdf asdf asdf asdf asdf asfd.</p>
-                  <md-layout md-column>
-                    <md-layout md-flex="100">
-                    <md-whiteframe id="year" md-elevation="5">
-                    Year
-                    <md-layout md-column>
-                      <md-layout md-flex="25">
-                        <md-whiteframe id="quarter" md-elevation="5">
-                        Quarter
-                          <md-layout md-gutter md-flex>
-                            <md-layout>M</md-layout>
-                            <md-layout>M</md-layout>
-                            <md-layout>
-                              <md-whiteframe id="month" md-elevation="5">
-                              Month
-                              <md-layout md-row md-gutter md-flex>
-                                <md-layout>W</md-layout>
-                                <md-layout>W</md-layout>
-                                <md-layout>W</md-layout>
-                                <md-layout>
-                                  <md-whiteframe id="week" md-elevation="5">
-                                  Week
-                                    <md-whiteframe id="day" md-elevation="5">
-                                    Day
-                                    </md-whiteframe>
-                                  </md-whiteframe>
-                                  </md-layout>
-                                </md-layout>
-                              </md-whiteframe>
-                            </md-layout>
-                          </md-layout>
-                        </md-whiteframe>
-                        </md-layout>
-                        <md-layout>Q</md-layout>
-                        <md-layout>Q</md-layout>
-                        <md-layout>Q</md-layout>
-                      </md-layout>
-                    </md-whiteframe>
-                    </md-layout>
-                    </md-layout>
+                  <p>Campaign: Toni Atkin's Republican Backing</p>
+                  <!--<md-whiteframe md-tag="section" style="padding:10px;background-color:#e1f5fe;color:#000">Campaign: Toni Atkin's Republican Backing</md-whiteframe>-->
+                   <md-input-container>
+                    <md-icon>phone</md-icon>
+                    <label>Phone</label>
+                    <md-input type="tel" id="#phoneNumber"></md-input>
+                    <input type="hidden">
+                  </md-input-container>
                   </md-card-content>
+                  <md-card-actions>
+                  <md-button class="md-raised md-primary" id="contactForm" v-on:click.native="makeCall">Take Action</md-button>
+
+                  </md-card-actions>
                 </md-card>
-              </md-layout>
-              <md-layout md-flex="10"></md-layout>
             </md-layout>
-          </md-layout>
-        </md-layout>
+        <!--</md-layout>-->
       <!--</md-layout>-->
     </md-layout>
   </div>
@@ -137,19 +97,23 @@
      title: 'Title!',
      subhead: 'Subhead!'
    },
-   /*
    methods: {
-     generateKeywords: function(e, g) {
-       return [e.name, g.name];
+     makeCall: function(e, g) {
+    console.log('cliecks');
+    $.ajax({
+        url: 'https://telegraph-tunnel.appspot.com/call',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+            phoneNumber: $('#phoneNumber').val()
+        }
+    }).done(function(data) {
+        alert(data.message);
+    }).fail(function(error) {
+        alert(JSON.stringify(error));
+    });
      },
-   },
-   computed: {
-     // a computed getter
-     keywords: function() {
-       return this.generateKeywords(this.ethnicities[this.activeEthnicity], this.groups[this.activeGroup]);
-     }
    }
-   */
   });
   </script>
   <style>
